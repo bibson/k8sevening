@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: mypod
+  name: mypod-sc-node
+spec:
+  containers:
+  - image: httpd:latest
+    name: con1
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: taint
+    operator: Equal
+    value: green
+    effect: NoExecute
+
+      
+     
